@@ -73,112 +73,202 @@ The goal of this project is to provide organized, immediately accessible securit
 
 ## Installation
 
-### Quick Start
+### Method 1: Add Marketplace (Recommended)
 
-Clone this repository:
+Add this repository as a Claude Code plugin marketplace:
+
+```bash
+/plugin marketplace add Eyadkelleh/awesome-claude-skills-security
+```
+
+Then list available plugins:
+
+```bash
+/plugin
+```
+
+### Method 2: Install Specific Plugins
+
+Install individual security testing plugins:
+
+```bash
+# Fuzzing payloads for injection testing
+/plugin install security-fuzzing@awesome-security-skills
+
+# Password wordlists
+/plugin install security-passwords@awesome-security-skills
+
+# Sensitive data patterns (API keys, etc.)
+/plugin install security-patterns@awesome-security-skills
+
+# XSS, XXE, and attack payloads
+/plugin install security-payloads@awesome-security-skills
+
+# Username wordlists
+/plugin install security-usernames@awesome-security-skills
+
+# Web shell samples for detection
+/plugin install security-webshells@awesome-security-skills
+```
+
+### Method 3: Clone Repository
+
+Clone and use directly:
 
 ```bash
 git clone https://github.com/Eyadkelleh/awesome-claude-skills-security.git
 cd awesome-claude-skills-security
 ```
 
-### Install Individual Skills
-
-Each category is available as a separate skill. Navigate to the skill directory you want to use:
-
-```bash
-cd seclists-categories/fuzzing
-```
-
-Or install directly via Claude Code marketplace (if available):
-
-```bash
-/plugin marketplace add Eyadkelleh/awesome-claude-skills-security
-/plugin install seclists-fuzzing
-```
-
 ## Usage
 
-### Basic Pattern
+### Using Slash Commands
 
-```python
-# Access files from any skill
-import os
+Once installed, you can use specialized security testing commands:
 
-# Example: Load fuzzing payloads
-skill_path = "references/Fuzzing"
+```bash
+# SQL injection testing guidance
+/sqli-test
 
-# List all available files
-for root, dirs, files in os.walk(skill_path):
-    for file in files:
-        if file.endswith('.txt'):
-            filepath = os.path.join(root, file)
-            print(f"Found: {filepath}")
+# XSS testing and payload generation
+/xss-test
 
-            # Read file content
-            with open(filepath, 'r', errors='ignore') as f:
-                content = f.read().splitlines()
-                print(f"  Lines: {len(content)}")
+# Access wordlists for fuzzing/brute force
+/wordlist
+
+# Web shell detection (defensive security)
+/webshell-detect
+
+# Scan for exposed API keys and secrets
+/api-keys
 ```
 
-### Example Use Cases
+### Using Specialized Agents
 
-**SQL Injection Testing**
+Invoke expert agents for comprehensive security guidance:
+
+```bash
+# Penetration testing advisor
+Ask Claude to use the "pentest-advisor" agent for strategic pentesting guidance
+
+# CTF competition assistant
+Ask Claude to use the "ctf-assistant" agent for solving security challenges
+
+# Bug bounty hunting advisor
+Ask Claude to use the "bug-bounty-hunter" agent for responsible vulnerability disclosure
+```
+
+### Direct File Access
+
+If you cloned the repository, access wordlists directly:
+
 ```python
-# Load SQL injection payloads
-with open('references/Fuzzing/quick-SQLi.txt', 'r') as f:
+# Example: Load SQL injection payloads
+with open('seclists-categories fuzzing/fuzzing/references/Fuzzing/quick-SQLi.txt', 'r') as f:
     sqli_payloads = f.read().splitlines()
 
-# Test against authorized targets
+# Example: Load common passwords
+with open('seclists-categories passwords/passwords/references/500-worst-passwords.txt', 'r') as f:
+    passwords = f.read().splitlines()
+
+# Example: Use in security testing
 for payload in sqli_payloads[:10]:
-    test_injection(payload)  # Your testing function
+    test_injection(target_url, payload)
 ```
 
-**Password Policy Validation**
-```python
-# Load common passwords for policy testing
-with open('references/Passwords/10k-most-common.txt', 'r') as f:
-    common_passwords = f.read().splitlines()
+### Example Workflows
 
-# Validate password policy blocks common passwords
-test_password_policy(common_passwords)
+**SQL Injection Testing (Authorized)**
+```bash
+# 1. Start with the SQL injection command
+/sqli-test
+
+# 2. Follow the guidance provided
+# 3. Use appropriate payloads from fuzzing/references/
+# 4. Document all findings
 ```
 
-**API Key Detection**
-```python
-# Load API key patterns
-with open('references/Pattern-Matching/api-keys.txt', 'r') as f:
-    api_patterns = f.read().splitlines()
+**CTF Challenge**
+```bash
+# 1. Invoke the CTF assistant
+"Help me solve this web exploitation CTF challenge"
 
-# Scan codebase for exposed keys
-scan_for_patterns(codebase_path, api_patterns)
+# 2. Describe the challenge
+# 3. Get guidance on approach and payloads
+# 4. Access relevant wordlists as suggested
+```
+
+**Bug Bounty Hunting**
+```bash
+# 1. Invoke the bug bounty agent
+"Help me test this bug bounty program"
+
+# 2. Review scope and methodology
+# 3. Use appropriate testing commands
+# 4. Get guidance on responsible disclosure
 ```
 
 ## Project Structure
 
 ```
 awesome-claude-skills-security/
-├── README.md                           # This file
+├── README.md                                    # This file
+├── .claude-plugin/                              # Plugin marketplace configuration
+│   ├── marketplace.json                         # Marketplace definition
+│   ├── plugin.json                              # Main plugin manifest
+│   ├── commands/                                # Slash commands
+│   │   ├── sqli-test.md                        # SQL injection testing
+│   │   ├── xss-test.md                         # XSS testing
+│   │   ├── wordlist.md                         # Wordlist access
+│   │   ├── webshell-detect.md                  # Web shell detection
+│   │   └── api-keys.md                         # API key scanning
+│   └── agents/                                  # Specialized agents
+│       ├── pentest-advisor.md                  # Pentesting guidance
+│       ├── ctf-assistant.md                    # CTF competition help
+│       └── bug-bounty-hunter.md                # Bug bounty guidance
 ├── seclists-categories/
-│   ├── fuzzing/
-│   │   ├── SKILL.md                   # Skill metadata
-│   │   └── references/                # Fuzzing payloads
-│   ├── passwords/
+│   ├── fuzzing/fuzzing/
+│   │   ├── SKILL.md                            # Skill metadata
+│   │   └── references/                         # SQL/NoSQL/Command injection
+│   ├── passwords/passwords/
 │   │   ├── SKILL.md
-│   │   └── references/                # Password wordlists
-│   ├── pattern-matching/
+│   │   └── references/                         # Password wordlists
+│   ├── pattern-matching/pattern-matching/
 │   │   ├── SKILL.md
-│   │   └── references/                # Detection patterns
-│   ├── payloads/
+│   │   └── references/                         # API keys, sensitive data
+│   ├── payloads/payloads/
 │   │   ├── SKILL.md
-│   │   └── references/                # Attack payloads
-│   ├── usernames/
+│   │   └── references/                         # XSS, XXE, file upload
+│   ├── usernames/usernames/
 │   │   ├── SKILL.md
-│   │   └── references/                # Username wordlists
-│   └── web-shells/
+│   │   └── references/                         # Username wordlists
+│   └── web-shells/web-shells/
 │       ├── SKILL.md
-│       └── references/                # Web shell samples
+│       └── references/                         # Web shell samples
 ```
+
+## Features
+
+### Slash Commands
+
+- **`/sqli-test`** - Interactive SQL injection testing guide with payload recommendations
+- **`/xss-test`** - XSS vulnerability testing with context-aware payload suggestions
+- **`/wordlist`** - Quick access to curated wordlists for authorized testing
+- **`/webshell-detect`** - Defensive security guidance for web shell detection
+- **`/api-keys`** - Scan for exposed API keys and sensitive credentials
+
+### Specialized Agents
+
+- **Pentest Advisor** - Strategic penetration testing methodology and planning
+- **CTF Assistant** - CTF competition challenge solver with educational focus
+- **Bug Bounty Hunter** - Professional bug bounty hunting and responsible disclosure
+
+### Security Resources
+
+- **6 Plugin Categories** - Fuzzing, Passwords, Patterns, Payloads, Usernames, Web-shells
+- **Curated from SecLists** - Essential security testing wordlists and payloads
+- **Instant Access** - All resources available through Claude Code commands
+- **Ethical Guidelines** - Built-in reminders for authorized use only
 
 ## Security & Ethics
 

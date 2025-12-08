@@ -1,0 +1,23 @@
+{
+  "name": "awesome-security-skills",
+  "version": "1.0.0",
+  "description": "Security testing tools and resources from SecLists for authorized pentesting, CTF competitions, and security research",
+  "author": {
+    "name": "Eyad Kelleh",
+    "email": "noreply@github.com"
+  },
+  "homepage": "https://github.com/Eyadkelleh/awesome-claude-skills-security",
+  "repository": "https://github.com/Eyadkelleh/awesome-claude-skills-security",
+  "license": "MIT",
+  "keywords": [
+    "security",
+    "pentesting",
+    "fuzzing",
+    "payloads",
+    "wordlists",
+    "ctf",
+    "bug-bounty"
+  ],
+  "commands": "./commands/",
+  "agents": "./agents/"
+}

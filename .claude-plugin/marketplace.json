@@ -1,0 +1,98 @@
+{
+  "name": "awesome-security-skills",
+  "owner": {
+    "name": "Eyad Kelleh",
+    "email": "noreply@github.com"
+  },
+  "metadata": {
+    "description": "Security testing tools and resources from SecLists for authorized pentesting, CTF competitions, and security research",
+    "version": "1.0.0",
+    "pluginRoot": "./plugins"
+  },
+  "plugins": [
+    {
+      "name": "security-fuzzing",
+      "source": "./seclists-categories fuzzing/fuzzing",
+      "description": "Essential fuzzing payloads for SQL injection, command injection, and vulnerability testing",
+      "version": "1.0.0",
+      "author": {
+        "name": "SecLists Community"
+      },
+      "homepage": "https://github.com/danielmiessler/SecLists",
+      "license": "MIT",
+      "keywords": ["security", "fuzzing", "sqli", "injection", "pentesting"],
+      "category": "security-testing",
+      "strict": false
+    },
+    {
+      "name": "security-passwords",
+      "source": "./seclists-categories passwords/passwords",
+      "description": "Curated password wordlists for authorized credential testing and password policy validation",
+      "version": "1.0.0",
+      "author": {
+        "name": "SecLists Community"
+      },
+      "homepage": "https://github.com/danielmiessler/SecLists",
+      "license": "MIT",
+      "keywords": ["security", "passwords", "wordlists", "credentials", "pentesting"],
+      "category": "security-testing",
+      "strict": false
+    },
+    {
+      "name": "security-patterns",
+      "source": "./seclists-categories pattern-matching/pattern-matching",
+      "description": "Sensitive data patterns for API keys, credit cards, emails, and security testing",
+      "version": "1.0.0",
+      "author": {
+        "name": "SecLists Community"
+      },
+      "homepage": "https://github.com/danielmiessler/SecLists",
+      "license": "MIT",
+      "keywords": ["security", "patterns", "regex", "detection", "api-keys"],
+      "category": "security-testing",
+      "strict": false
+    },
+    {
+      "name": "security-payloads",
+      "source": "./seclists-categories payloads/payloads",
+      "description": "Specialized attack payloads for XSS, XXE, template injection, and file upload testing",
+      "version": "1.0.0",
+      "author": {
+        "name": "SecLists Community"
+      },
+      "homepage": "https://github.com/danielmiessler/SecLists",
+      "license": "MIT",
+      "keywords": ["security", "payloads", "xss", "xxe", "injection"],
+      "category": "security-testing",
+      "strict": false
+    },
+    {
+      "name": "security-usernames",
+      "source": "./seclists-categories usernames/usernames",
+      "description": "Common username wordlists for enumeration and authorized security testing",
+      "version": "1.0.0",
+      "author": {
+        "name": "SecLists Community"
+      },
+      "homepage": "https://github.com/danielmiessler/SecLists",
+      "license": "MIT",
+      "keywords": ["security", "usernames", "enumeration", "wordlists"],
+      "category": "security-testing",
+      "strict": false
+    },
+    {
+      "name": "security-webshells",
+      "source": "./seclists-categories web-shells/web-shells",
+      "description": "Web shell samples for detection system validation and defensive security",
+      "version": "1.0.0",
+      "author": {
+        "name": "SecLists Community"
+      },
+      "homepage": "https://github.com/danielmiessler/SecLists",
+      "license": "MIT",
+      "keywords": ["security", "webshells", "detection", "defensive"],
+      "category": "security-testing",
+      "strict": false
+    }
+  ]
+}
