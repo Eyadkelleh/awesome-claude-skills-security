@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(tree -L 3 -d seclists-categories)",
+      "Bash(done)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}
