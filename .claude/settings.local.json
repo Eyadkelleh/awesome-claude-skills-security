@@ -1,7 +1,10 @@
 {
   "permissions": {
     "allow": [
-      "Bash(cat .claude-plugin/marketplace.json)"
+      "Bash(cat .claude-plugin/marketplace.json)",
+      "Bash(file /Users/ekelleh/Developer/awesome-claude-skills-security/hr_eos_chatbot-master/chatbot/core/*)",
+      "Bash(test -f /Users/ekelleh/Developer/awesome-claude-skills-security/LLM_Testing/SKILL.md)",
+      "Bash(python3 -m json.tool /Users/ekelleh/Developer/awesome-claude-skills-security/.claude-plugin/marketplace.json)"
     ],
     "deny": [],
     "ask": []

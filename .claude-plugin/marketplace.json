@@ -93,6 +93,20 @@
       "keywords": ["security", "webshells", "detection", "defensive"],
       "category": "security-testing",
       "strict": false
+    },
+    {
+      "name": "llm-testing",
+      "source": "./LLM_Testing",
+      "description": "Comprehensive LLM security testing prompts for bias detection, data leakage, alignment testing, and adversarial prompt resistance",
+      "version": "1.0.0",
+      "author": {
+        "name": "Eyad Kelleh"
+      },
+      "homepage": "https://github.com/Eyadkelleh/awesome-claude-skills-security",
+      "license": "MIT",
+      "keywords": ["llm", "ai-safety", "bias-testing", "data-leakage", "alignment", "red-team", "adversarial"],
+      "category": "ai-security",
+      "strict": false
     }
   ]
 }
