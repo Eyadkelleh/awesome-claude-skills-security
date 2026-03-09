@@ -586,6 +586,12 @@ Example `marketplace.json` structure:
 }
 ```
 
+## Related OSINT Tools
+
+| Tool | Description |
+|:-----|:------------|
+| [x-twitter-scraper](https://github.com/Xquik-dev/x-twitter-scraper) | X/Twitter OSINT skill — user lookup, follower extraction, engagement analysis, account monitoring. MCP server, REST API, 20 extraction tools. |
+
 ## Documentation and References
 
 - [skills.sh Marketplace](https://skills.sh/) - Browse and discover Claude Code skills
